@@ -63,6 +63,8 @@ resource "aws_iam_policy_attachment" "app-attach4" {
     roles = ["${aws_iam_role.elasticbeanstalk-service-role.name}"]
     policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"
 }
+# ecr
+# uncomment for ecr
 #resource "aws_iam_role_policy" "app-ec2-role-policy" {
 #    name = "app-ec2-role-policy"
 #    role = "${aws_iam_role.app-ec2-role.id}"

@@ -15,6 +15,14 @@ resource "aws_security_group_rule" "allow-mysql" {
     security_group_id = "${aws_security_group.rds-app-prod.id}"
     source_security_group_id = "${aws_security_group.app-prod.id}"
 }
+resource "aws_security_group_rule" "allow-outgoing" {
+    type = "egress"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    security_group_id = "${aws_security_group.rds-app-prod.id}"
+    cidr_blocks = ["0.0.0.0/0"]
+}
 # rds
 resource "aws_db_instance" "rds-app-prod" {
   allocated_storage    = 10

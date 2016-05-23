@@ -10,21 +10,16 @@ resource "aws_security_group" "app-prod" {
   vpc_id = "${aws_vpc.main.id}"
   name = "app-prod"
   description = "App prod security group"
+  egress {
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
   tags {
     Name = "app-prod"
   }
 }
-
-# nat gw
-resource "aws_eip" "nat" {
-  vpc      = true
-}
-resource "aws_nat_gateway" "nat-gw" {
-  allocation_id = "${aws_eip.nat.id}"
-  subnet_id = "${aws_subnet.main-public-1.id}"
-  depends_on = ["aws_internet_gateway.main-gw"]
-}
-
 
 # app
 
@@ -81,6 +76,11 @@ resource "aws_elastic_beanstalk_environment" "app-prod" {
     namespace = "aws:ec2:vpc"
     name = "ELBScheme"
     value = "public"
+  }
+  setting {
+    namespace = "aws:ec2:vpc"
+    name = "ELBSubnets"
+    value = "${aws_subnet.main-public-1.id},${aws_subnet.main-public-2.id}"
   }
   setting {
     namespace = "aws:elb:loadbalancer"
