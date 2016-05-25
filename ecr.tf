@@ -13,8 +13,8 @@
 #            "Effect": "Allow",
 #            "Principal": {
 #                  "AWS": [
-#                      "arn:aws:iam::${AWS_ACCOUNT_ID}:role/${aws_iam_role.app-ec2-role.name}",
-#                      "arn:aws:iam::${AWS_ACCOUNT_ID}:role/elasticbeanstalk-service-role"
+#                      "arn:aws:iam:::role/${aws_iam_role.app-ec2-role.name}",
+#                      "arn:aws:iam:::role/elasticbeanstalk-service-role"
 #                    ],
 #            "Action": [
 #                "ecr:GetDownloadUrlForLayer",
