@@ -28,7 +28,7 @@ resource "aws_db_instance" "rds-app-prod" {
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "5.6.29"
-  instance_class       = "db.t2.small"
+  instance_class       = "db.t2.micro"
   identifier           = "app-prod"
   name                 = "mydb"
   username             = "root"

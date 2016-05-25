@@ -65,7 +65,7 @@ resource "aws_elastic_beanstalk_environment" "app-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name = "InstanceType"
-    value = "t2.small"
+    value = "t2.micro"
   }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
