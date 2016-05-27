@@ -13,9 +13,10 @@
 #            "Effect": "Allow",
 #            "Principal": {
 #                  "AWS": [
-#                      "arn:aws:iam:::role/${aws_iam_role.app-ec2-role.name}",
-#                      "arn:aws:iam:::role/elasticbeanstalk-service-role"
-#                    ],
+#                      "arn:aws:iam::${var.AWS_USERID}:role/${aws_iam_role.app-ec2-role.name}",
+#                      "arn:aws:iam::${var.AWS_USERID}:role/elasticbeanstalk-service-role"
+#                    ]
+#            },
 #            "Action": [
 #                "ecr:GetDownloadUrlForLayer",
 #                "ecr:BatchGetImage",
