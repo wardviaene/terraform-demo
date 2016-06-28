@@ -9,3 +9,9 @@ AWS_SECRET_KEY = "YOUR SECRET KEY"
 AWS_REGION = "eu-west-1"
 AWS_USERID = "123456"
 ```
+## Execute
+Then execute the plan using terraform:
+```
+terraform plan   # to show the plan
+terraform apply  # to apply the changes
+```
