@@ -30,7 +30,7 @@ resource "aws_elastic_beanstalk_application" "app" {
 resource "aws_elastic_beanstalk_environment" "app-prod" {
   name = "app-prod"
   application = "${aws_elastic_beanstalk_application.app.name}"
-  solution_stack_name = "64bit Amazon Linux 2016.03 v2.1.2 running PHP 5.6"
+  solution_stack_name = "64bit Amazon Linux 2017.03 v2.5.0 running PHP 7.0"
   cname_prefix = "app-prod-a2b6d0"
   setting {
     namespace = "aws:ec2:vpc"
